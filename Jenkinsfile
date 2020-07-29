@@ -14,7 +14,7 @@ pipeline {
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat ' mvn  package'
+                bat ' mvn test package'
             }
         }
 	}
