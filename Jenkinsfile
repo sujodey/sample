@@ -8,13 +8,13 @@ pipeline {
       // Build the artefact
         stage('package') {
             steps {
-                bat 'mvn clean package'
+                bat 'mvn clean install'
             }
         }
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat 'mvn test'
+                bat 'mvn test package'
             }
         }
 	}
