@@ -6,15 +6,15 @@ pipeline {
 
       
       // Build the artefact
-        stage('package') {
-            steps {
-                bat 'mvn clean compile '
-            }
-        }
+       // stage('package') {
+          //  steps {
+               // bat 'mvn clean compile '
+          //  }
+       // }
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat ' mvn test package'
+                bat ' mvn clean install test'
             }
         }
 	}
