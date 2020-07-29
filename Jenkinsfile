@@ -8,7 +8,7 @@ pipeline {
       // Build the artefact
         stage('package') {
             steps {
-                bat 'mvn clean install'
+                bat 'mvn clean compile '
             }
         }
         // Munit testing
