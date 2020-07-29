@@ -14,7 +14,7 @@ pipeline {
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat ' mvn clean package deploy -DmuleDeploy'
+                bat ' mvn clean package'
             }
         }
 	}
