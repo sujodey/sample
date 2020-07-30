@@ -14,7 +14,7 @@ pipeline {
        // Build the artefact
         stage('artifact package') {
             steps {
-                bat ' mvn clean Package'
+                bat ' mvn clean test'
 		     // publish html
         publishHTML target: [
             allowMissing: false,
