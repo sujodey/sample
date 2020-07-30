@@ -15,6 +15,15 @@ pipeline {
         stage('MUnit Testing') {
             steps {
                 bat ' mvn clean test'
+		     // publish html
+        publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
             }
         }
 	}
