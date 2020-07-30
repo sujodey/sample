@@ -4,17 +4,17 @@ pipeline {
 	stages {
 	    
 
+       // Munit testing
       
-      // Build the artefact
-       // stage('package') {
-          //  steps {
-               // bat 'mvn clean compile '
-          //  }
-       // }
-        // Munit testing
-        stage('MUnit Testing') {
+       stage('Munit Test') {
+           steps {
+           bat 'mvn clean test '
+           }
+       }
+       // Build the artefact
+        stage('artifact package') {
             steps {
-                bat ' mvn clean test'
+                bat ' mvn clean Package'
 		     // publish html
         publishHTML target: [
             allowMissing: false,
