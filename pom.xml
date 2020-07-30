@@ -14,13 +14,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.3.0</app.runtime>
-<<<<<<< HEAD
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
-	<munit.version>2.2.5</munit.version>
-=======
-		<mule.maven.plugin.version>3.4.0</mule.maven.plugin.version>
-	<munit.version>2.2.3</munit.version>
->>>>>>> 8499a5dcecaa5d9496e5180524de8b545164f63d
+	        <munit.version>2.2.5</munit.version>
+
     </properties>
 
 	<build>
@@ -50,10 +46,15 @@
                 <configuration>
                     <coverage>
                         <runCoverage>true</runCoverage>
+<<<<<<< HEAD
 						 <failBuild>false</failBuild>
                         <requiredApplicationCoverage>75</requiredApplicationCoverage>
 
 
+=======
+			 <failBuild>false</failBuild>
+                        <requiredApplicationCoverage>75</requiredApplicationCoverage>
+>>>>>>> af17932a147124e48fa7ba07a7e5f6ad67fb1f8a
                         <formats>
                             <format>html</format>
                         </formats>
