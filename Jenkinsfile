@@ -15,15 +15,7 @@ pipeline {
         stage('artifact package') {
             steps {
                 bat ' mvn clean test'
-		     // publish html
-        publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'reports',
-            reportFiles: 'summary.html',
-            reportName: 'Munit Report'
-          ]
+		  
             }
         }
 	}
@@ -32,7 +24,16 @@ pipeline {
 	post {
 		success {
 		  bat "echo 'success'"
-		  // Send Success Email 
+		  // Send Success Email
+			   // publish html
+        publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
 		}
 		failure {
 		  bat "echo 'failure'"
