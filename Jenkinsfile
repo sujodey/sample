@@ -11,16 +11,7 @@ pipeline {
            bat 'mvn clean test '
            }
        }
-       // Build the artefact
-        stage('artifact package') {
-            steps {
-                bat ' mvn clean test'
-		  
-            }
-        }
-	}
-  
-	
+     
 	post {
 		success {
 		  bat "echo 'success'"
@@ -30,7 +21,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: '${application.path}/target/site/munit/coverage',
+            reportDir: 'C:\Program Files (x86)\Jenkins\workspace\Munit test- sample project\target\site\munit\coverage\*',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
@@ -41,7 +32,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: '${application.path}/target/site/munit/coverage',
+            reportDir: 'C:\Program Files (x86)\Jenkins\workspace\Munit test- sample project\target\site\munit\coverage\*',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
