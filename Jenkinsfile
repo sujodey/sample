@@ -37,6 +37,14 @@ pipeline {
 		}
 		failure {
 		  bat "echo 'failure'"
+			 publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: '${application.path}/target/site/munit/coverage',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
 		  // Send Failure Email 
 		}
 	}
