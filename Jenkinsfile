@@ -4,32 +4,44 @@ pipeline {
 	stages {
 	    
 
-       // Munit testing
       
-       stage('Munit Test') {
-           steps {
-           bat 'mvn clean test '
-           }
-       }
-     
+      
+        // Munit testing
+        stage('MUnit Testing') {
+            steps {
+                bat ' mvn clean test'
+		     // publish html
+       
+            }
+        }
+	}
+  
+	
 	post {
 		success {
 		  bat "echo 'success'"
-		  // Send Success Email
-			   // publish html
-        publishHTML target: [
-            allowMissing: true,
+		  // Send Success Email 
+			 publishHTML target: [
+            allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: '${application.path}/target/site/munit/coverage/*',
+            reportDir: 'reports',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
 		}
 		failure {
 		  bat "echo 'failure'"
-		  // Send Failure Email 
+		  // Send Failure Email
+	   publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
 		}
 	}
-	}
 }
+
