@@ -30,7 +30,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'reports',
+            reportDir: '${application.path}/target/site/munit/coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
