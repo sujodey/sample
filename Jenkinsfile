@@ -21,7 +21,7 @@ pipeline {
             allowMissing: true,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'Munit test- sample project\target\site\munit\coverage',
+            reportDir: '${application.path}/target/site/munit/coverage/*',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
