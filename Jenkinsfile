@@ -25,7 +25,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'coverage',
+            reportDir: '/target/site/munit/coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
@@ -37,7 +37,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'coverage',
+            reportDir: '/target/site/munit/coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
