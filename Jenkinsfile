@@ -18,24 +18,16 @@ pipeline {
 		  // Send Success Email
 			   // publish html
         publishHTML target: [
-            allowMissing: false,
+            allowMissing: true,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'coverage',
+            reportDir: 'Munit test- sample project\target\site\munit\coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
 		}
 		failure {
 		  bat "echo 'failure'"
-			 publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'coverage',
-            reportFiles: 'summary.html',
-            reportName: 'Munit Report'
-          ]
 		  // Send Failure Email 
 		}
 	}
