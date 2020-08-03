@@ -37,7 +37,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: '/Jenkins/workspace/Munit test- sample project/target/site/munit/coverage',
+            reportDir: 'reports',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
