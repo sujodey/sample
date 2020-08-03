@@ -25,7 +25,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'target',
+            reportDir: 'target/site',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
