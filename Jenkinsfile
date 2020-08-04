@@ -6,8 +6,7 @@ pipeline {
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat ' mvn clean test' 
-	  
+                bat ' mvn clean test mkdir "C:\Program Files (x86)\Jenkins\workspace\Munit test- sample project\MunitReport" '
 	    }
 		
 	        
