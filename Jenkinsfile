@@ -32,8 +32,8 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'target/site/munit/coverage',
-            reportFiles: 'summary.html',
+            reportDir: 'C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports',
+            reportFiles: 'summary-%build_ID%.html',
             reportName: 'Munit Report'
           ]
 		}
@@ -44,11 +44,12 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'target/site/munit/coverage',
-            reportFiles: 'summary.html',
+            reportDir: 'C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports',
+            reportFiles: 'summary-%build_ID%.html',
             reportName: 'Munit Report'
           ]
 		}
 	}
+}
 }
 
