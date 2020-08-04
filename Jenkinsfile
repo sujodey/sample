@@ -10,7 +10,7 @@ pipeline {
         stage('MUnit Testing') {
             steps {
                 bat ' mvn clean test'
-		    bat %cd%
+
 		   
 		     // publish html
        
