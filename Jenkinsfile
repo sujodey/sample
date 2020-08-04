@@ -11,7 +11,7 @@ pipeline {
             steps {
                 bat ' mvn clean test' }
 		bat %cd%
-	        bat 'mkdir report'
+	        
         }
 	}
   
