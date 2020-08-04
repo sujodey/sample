@@ -24,7 +24,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/72/htmlreports/Munit_20Report',
+            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/*.*/htmlreports/Munit_20Report',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
@@ -36,7 +36,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/72/htmlreports/Munit_20Report',
+            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/*.*/htmlreports/Munit_20Report',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
