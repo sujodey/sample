@@ -15,7 +15,8 @@ pipeline {
 			steps{
 		    bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports"
                       move "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\target\\site\\munit\\coverage\\summary.html"  "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports" '''
-		      }
+		      ren "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports\\summary.html" "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports\\summary-%build_ID%.html"
+			}
 		}
 	}
 	
