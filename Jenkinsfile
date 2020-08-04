@@ -6,7 +6,9 @@ pipeline {
         // Munit testing
         stage('MUnit Testing') {
             steps {
-                bat ' mvn clean test' }
+                bat ' mvn clean test' 
+	  
+	    }
 		
 	        
         }
@@ -24,7 +26,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/*.*/htmlreports/Munit_20Report',
+            reportDir: 'target/site/munit/coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
@@ -36,7 +38,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'Jenkins/jobs/Munit test- sample project/builds/*.*/htmlreports/Munit_20Report',
+            reportDir: 'target/site/munit/coverage',
             reportFiles: 'summary.html',
             reportName: 'Munit Report'
           ]
