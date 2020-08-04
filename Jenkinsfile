@@ -7,14 +7,12 @@ pipeline {
         stage('MUnit Testing') {
             steps {
                 bat ' mvn clean test' }
-		steps{
-		bat %cd%
-		    bat 'mkdir report'	
-		}
+		
 	        
         }
 	}
 	
+	bat %CD%
 	
   
 	
