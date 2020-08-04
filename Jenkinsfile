@@ -32,7 +32,7 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: 'C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports',
+            reportDir: 'C:/Program Files (x86)/Jenkins/workspace/Munit test- sample project/MunitReports',
             reportFiles: 'summary-%build_ID%.html',
             reportName: 'Munit Report'
           ]
