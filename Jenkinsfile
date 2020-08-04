@@ -10,6 +10,8 @@ pipeline {
         stage('MUnit Testing') {
             steps {
                 bat ' mvn clean test'
+		    bat %cd%
+		    bat 'mkdir report'
 		     // publish html
        
             }
@@ -26,7 +28,7 @@ pipeline {
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'target/site/munit/coverage',
-            reportFiles: 'summary.html',
+            reportFiles: 'summary-$build_id.html',
             reportName: 'Munit Report'
           ]
 		}
@@ -38,7 +40,7 @@ pipeline {
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'target/site/munit/coverage',
-            reportFiles: 'summary.html',
+            reportFiles: 'summary-$build_id.html',
             reportName: 'Munit Report'
           ]
 		}
