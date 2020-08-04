@@ -2,18 +2,16 @@ pipeline {
 	agent any
 	
 	stages {
-	    
-
-      
-      
+	   
         // Munit testing
         stage('MUnit Testing') {
             steps {
                 bat ' mvn clean test' }
-		bat %cd%
 	        
         }
 	}
+	
+	bat %cd%
   
 	
 	post {
