@@ -17,6 +17,7 @@ pipeline {
 			echo " ${WORKSPACE} "
 			cd ${WORKSPACE}
 			mkdir MunitReports
+			echo " ${WORKSPACE} "
 
                            '''				
 			}
