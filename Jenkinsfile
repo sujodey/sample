@@ -15,7 +15,7 @@ pipeline {
 			steps{
 bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports"
                       move "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\target\\site\\munit\\coverage\\summary.html"  "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports" 
-				ren "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports\\summary.html" "summary-%build_ID%.html" '''				
+				ren "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample project\\MunitReports\\summary.html" "MunitReport-%build_ID%.html" '''				
 			}
 		}
 	}
@@ -33,7 +33,7 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-	   reportFiles: 'summary-${build_ID}.html',
+	   reportFiles: 'MunitReport-%build_ID%.html',
             reportName: 'Munit Report'
           ]
 		}
@@ -45,7 +45,7 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-            reportFiles: 'summary-${build_ID}.html',
+            reportFiles: 'MunitReport-%build_ID%.html',
             reportName: 'Munit Report'
           ]
 		}
