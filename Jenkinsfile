@@ -33,7 +33,7 @@ pipeline {
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-	 reportFiles: 'MunitReport-${build_ID}.html',
+	 reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
           ]
 		}
@@ -45,7 +45,7 @@ pipeline {
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-            reportFiles: 'MunitReport-${build_ID}.html',
+            reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
           ]
 		}
