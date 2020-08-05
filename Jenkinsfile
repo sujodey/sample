@@ -4,14 +4,14 @@ pipeline {
 	stages {
 	   
         // Munit testing
-       // stage('MUnit Testing') {
-            //steps {
-              // sh 'mvn clean test'
-	   // }
+        stage('MUnit Testing') {
+            steps {
+               sh 'mvn clean test'
+	    }
 		
 	        
-       // }
-		stage(' Moving Munit to external folder'){
+        }
+		stage(' publishing Munit Reports'){
 			steps{
 			sh '''
 			echo " ${WORKSPACE} "
