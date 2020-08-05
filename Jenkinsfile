@@ -6,7 +6,7 @@ pipeline {
         // Munit testing
         stage('MUnit Testing') {
             steps {
-               bat 'mvn clean test'
+               sh 'mvn clean test'
 	    }
 		
 	        
@@ -21,13 +21,9 @@ pipeline {
 		}
 	}
 	
-	
-	
-  
-	
 	post {
 		success {
-		  bat "echo 'success'"
+		  sh "echo 'success'"
 		  // Send Success Email 
 			 publishHTML target: [
             allowMissing: false,
@@ -39,7 +35,7 @@ pipeline {
           ]
 		}
 		failure {
-		  bat "echo 'failure'"
+		  sh "echo 'failure'"
 		  // Send Failure Email
 	   publishHTML target: [
             allowMissing: false,
