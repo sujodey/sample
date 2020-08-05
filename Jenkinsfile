@@ -16,7 +16,7 @@ pipeline {
 			sh '''
 			echo " ${WORKSPACE} "
 			cd ${WORKSPACE}
-			mkdir MunitReports
+			mkdir -p  MunitReports
 			echo " ${WORKSPACE} "
 
                            '''				
