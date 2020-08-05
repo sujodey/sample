@@ -15,7 +15,8 @@ pipeline {
 			steps{
 			sh '''
 			echo " ${WORKSPACE} "
-			mkdir ${workspace}/MunitReports
+			cd ${WORKSPACE}
+			mkdir MunitReports
 
                            '''				
 			}
