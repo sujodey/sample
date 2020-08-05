@@ -15,6 +15,7 @@ pipeline {
 			steps{
 			sh '''
 			echo " ${WORKSPACE} "
+			mkdir ${workspace}\MunitReports
 
                            '''				
 			}
