@@ -33,7 +33,7 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-	   reportFiles: 'MunitReport-%build_ID%.html',
+	 reportFiles: 'MunitReport-${build_ID}.html',
             reportName: 'Munit Report'
           ]
 		}
@@ -45,7 +45,7 @@ bat '''  mkdir "C:\\Program Files (x86)\\Jenkins\\workspace\\Munit test- sample 
             alwaysLinkToLastBuild: false,
             keepAll: true,
             reportDir: 'MunitReports',
-            reportFiles: 'MunitReport-%build_ID%.html',
+            reportFiles: 'MunitReport-${build_ID}.html',
             reportName: 'Munit Report'
           ]
 		}
