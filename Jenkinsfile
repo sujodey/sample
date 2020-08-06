@@ -40,8 +40,16 @@ pipeline {
             reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
           ]
-	}
-		}
+		publishHTML (target: [
+           allowMissing: false,
+           alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'report/${BUILD_NUMBER}',
+           reportFiles: 'htmlreport.html',
+        reportName: 'Postman Integration Test Report'
+ ])
+}
+}
 }
 
 
