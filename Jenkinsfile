@@ -29,11 +29,11 @@ pipeline {
 	post {
         always {
 		
-               emailext attachLog: true, body: "The Build Result is ${currentBuild.result}: ${BUILD_URL}", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
+               emailext attachLog: true, body: " Build Result ${currentBuild.result}:", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
        subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sandhya.a.n@capgemini.com,sreedhar.butta@capgemini.com' 
 	
 			
-	 publishHTML Body: "Munit Report", target: [
+	 publishHTML  target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
