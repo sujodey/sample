@@ -29,7 +29,7 @@ pipeline {
 	post {
         always {
                emailext attachLog: true, body: "${currentBuild.result}: ${BUILD_URL}", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
-       subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: ['sandhya.a.n@capgemini.com' , 'sreedhar.butta@capgemini.com'] 
+       subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: ['[sandhya.a.n@capgemini.com'] , ['sreedhar.butta@capgemini.com']] 
 	
 			
 	 publishHTML target: [
