@@ -27,9 +27,9 @@ pipeline {
 	
 	post {
 		always {
+			success {
 		  sh "echo 'success'"
 		  // Send Success Email
-			always {
             emailtext body: 'A Test Email', recipientProviders: [[$class: 'DevelopersRecipientProviders'], [$class: 'RequestRecipientProviders']], subject: 'Test'
                 
 			 publishHTML target: [
