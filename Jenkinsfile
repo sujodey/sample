@@ -29,7 +29,7 @@ pipeline {
 	post {
         always {
 		
-               emailext attachLog: true, body: " Build Result ${currentBuild.result}: Please find the MUnit&Integration test Results from Below links ${BUILD_URL}", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
+               emailext attachLog: true, body: " Build Result ${currentBuild.result}: Please find the MUnit&Integration test Results from Below link ${BUILD_URL}", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
        subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sandhya.a.n@capgemini.com,sreedhar.butta@capgemini.com' 
 	
 			
