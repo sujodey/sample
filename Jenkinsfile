@@ -25,25 +25,23 @@ pipeline {
 		}
 	}
 	
+	
 	post {
-			success {
-		  sh "echo 'success'"
-		  // Send Success Email
-            emailtext body: 'A Test Email', recipientProviders: [[$class: 'DevelopersRecipientProviders'], [$class: 'RequestRecipientProviders']], subject: 'Test'
-                
-			 publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'MunitReports',
-	 reportFiles: 'MunitReport-${BUILD_ID}.html',
-            reportName: 'Munit Report'
-          ]
-		}
-		failure {
-		  sh "echo 'failure'"
+	success{
+        always {
+                emailext attachLog: true,
+                body: "${currentBuild.result}: ${BUILD_URL}: Build# ${BUILD_NUMBER}",
+                compressLog: true,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider'],
+                [$class: 'RequesterRecipientProvider']],
+                subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
+            }
+			}
+        
+	failure {
+	sh "echo 'failure'"
 		  // Send Failure Email
-	   publishHTML target: [
+	 publishHTML target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
@@ -54,5 +52,3 @@ pipeline {
 		}
 		}
 }
-
-
