@@ -33,7 +33,7 @@ pipeline {
        subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sandhya.a.n@capgemini.com,sreedhar.butta@capgemini.com' 
 	
 			
-	 publishHTML target: [
+	 publishHTML Body: "Munit Report", target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
@@ -41,14 +41,7 @@ pipeline {
             reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
           ]
-		publishHTML (target: [
-           allowMissing: false,
-           alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'report/${BUILD_NUMBER}',
-           reportFiles: 'htmlreport.html',
-        reportName: 'Postman Integration Test Report'
- ])
+		
 }
 }
 }
