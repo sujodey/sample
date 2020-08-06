@@ -27,7 +27,6 @@ pipeline {
 	
 	post {
 		always {
-		success {
 		  sh "echo 'success'"
 		  // Send Success Email
 			always {
@@ -58,4 +57,4 @@ pipeline {
 	}
 }
 
-}
+
