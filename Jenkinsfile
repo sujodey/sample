@@ -32,7 +32,7 @@ pipeline {
                 body: "${currentBuild.result}: ${BUILD_URL}: Build# ${BUILD_NUMBER}",
                 compressLog: true,
 	         replyTo: 'satheesh.chitti@capgemini.com'
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'],
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']
                 [$class: 'RequesterRecipientProvider']],
                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
 	        to: 'sandhya.a.n@capgemini.com'
