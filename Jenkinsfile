@@ -20,7 +20,7 @@ pipeline {
 			echo " ${WORKSPACE} "
 			
 			mv ${WORKSPACE}/target/munit/coverage/summary.html ${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html
-                    // mv ./target/site/munit/coverage/summary.html ./MunitReports/MunitReport-$BUILD_ID.html
+                    
                            '''				
 			}
 		}
