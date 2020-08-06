@@ -18,7 +18,7 @@ pipeline {
 			cd ${WORKSPACE}
 			mkdir -p  MunitReports
 			echo " ${WORKSPACE} "
-			
+			cd ${WORKSPACE}
 			mv ${WORKSPACE}/target/munit/coverage/summary.html ${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html
                     
                            '''				
