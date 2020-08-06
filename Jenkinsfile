@@ -27,7 +27,6 @@ pipeline {
 	
 	
 	post {
-	success{
         always {
                 emailext attachLog: true,
                 body: "${currentBuild.result}: ${BUILD_URL}: Build# ${BUILD_NUMBER}",
@@ -35,12 +34,9 @@ pipeline {
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'],
                 [$class: 'RequesterRecipientProvider']],
                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}"
-            }
-			}
+            
+			
         
-	failure {
-	sh "echo 'failure'"
-		  // Send Failure Email
 	 publishHTML target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
@@ -52,3 +48,5 @@ pipeline {
 		}
 		}
 }
+
+
