@@ -33,8 +33,8 @@ post {
 	always {
             script {
 			FILE="${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html"
-                       if ( -f  "$FILE" ) then
-                       {
+                       if ( -f  "$FILE" ) 
+		    	 {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
                                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
