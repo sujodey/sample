@@ -33,7 +33,7 @@ post {
 	always {
             script {
 			FILE="${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html"
-                       if [ -f "$FILE" ]; then
+                       if ( -f "$FILE" ); then
                        {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
