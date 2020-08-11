@@ -4,7 +4,7 @@ pipeline {
 	
 	 environment {
 		 DEMO = 'http://3.250.224.60:8080/job/Munittest-sampleproject'
-		 file = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
+		 FILE = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
     }
 	stages {
 	   
@@ -31,7 +31,7 @@ pipeline {
 post {
 	always {
             script {
-                        if (file_exists("$file")) 
+                        if ( -f "$FILE") 
 		    	 {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
