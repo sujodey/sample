@@ -32,8 +32,8 @@ pipeline {
 post {
 	always {
             script {
-			FILE="${WORKSPACE}"/MunitReports/MunitReport-$BUILD_ID.html
-                       if ( -f "$FILE" )
+			FILE="${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html"
+                       if [ -f "$FILE" ]; then
                        {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
@@ -46,7 +46,7 @@ post {
 				{
 					echo "muletime error"
 				}
-                
+                	fi
 			
 	 publishHTML  target: [
             allowMissing: false,
