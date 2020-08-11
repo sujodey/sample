@@ -4,7 +4,7 @@ pipeline {
 	
 	 environment {
 		 DEMO = 'http://3.250.224.60:8080/job/Munittest-sampleproject'
-		 FILE = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
+		 file = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
     }
 	stages {
 	   
@@ -31,7 +31,7 @@ pipeline {
 post {
 	always {
             script {
-		    if (-f("${FILE}")) {
+		    if (file.exists()) {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
                                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
