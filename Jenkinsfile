@@ -4,7 +4,7 @@ pipeline {
 	
 	 environment {
 		 DEMO = 'http://3.250.224.60:8080/job/Munittest-sampleproject'
-		 file = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
+		 FILE = '${WORKSPACE}/MunitReports/MunitReport-$BUILD_ID.html'
     }
 	stages {
 	   
@@ -31,25 +31,11 @@ pipeline {
 post {
 	always {
             script {
-		    if (file.exists()) {
-                            emailext (
-                                to: '${DEFAULT_RECIPIENTS}',
-                                subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
-                                body: "${DEMO}/${BUILD_NUMBER}/Munit_20Report",
-                                attachLog: true
-                            )
-                        }
-	    }
-			
-	 publishHTML  target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'MunitReports',
-            reportFiles: 'MunitReport-${BUILD_ID}.html',
-            reportName: 'Munit Report'
-          ]		
-		
+		    if [[ -f "$FILE" ]]; then
+        		echo "file exists"
+		    else
+                        echo "file does not exists"
+		  fi
 }
 }
 }
