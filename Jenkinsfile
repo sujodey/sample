@@ -4,7 +4,7 @@ pipeline {
 	
 	 environment {
 		 DEMO = 'http://3.250.224.60:8080/job/Munittest-sampleproject'
-		 FILE="${DEMO}/${BUILD_NUMBER}/Munit_20Report"
+		 FILE= '${DEMO}/${BUILD_NUMBER}/Munit_20Report'
 		 
     }
 	stages {
