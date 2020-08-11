@@ -31,7 +31,7 @@ pipeline {
 post {
 	always {
             script {
-		    if ( -f "${FILE}" ) {
+		    if ( -f '${FILE}' ) {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
                                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
