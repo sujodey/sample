@@ -13,9 +13,7 @@ pipeline {
             steps {
                sh 'mvn clean test'
 	    }
-		
-	        
-        }
+	}
 		stage(' publishing Munit Reports'){
 			steps{
 			sh '''
@@ -39,14 +37,9 @@ post {
                                 to: '${DEFAULT_RECIPIENTS}',
                                 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
                                 body: "${DEMO}/${BUILD_NUMBER}/Munit_20Report",
-                                attachLog: true,
+                                attachLog: true
                             )
                         }
-			else 
-				{
-					echo "muletime error"
-				}
-                	fi
 			
 	 publishHTML  target: [
             allowMissing: false,
@@ -55,10 +48,8 @@ post {
             reportDir: 'MunitReports',
             reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
-          ]
-		
-}
-		
+          ]		
+}		
 }
 }
 
