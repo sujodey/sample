@@ -33,7 +33,14 @@ pipeline {
 	post {
         success {
 		
-               emailext attachLog: true, body: " <h4>Build Result</h4> <h3> ${currentBuild.result}:</h3>  <h4> Please find the MUnit&Integration test Results from Below link</h4> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3>", compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
+               emailext attachLog: true, body: " <h4>Build Result</h4> <h3> ${currentBuild.result}:</h3>  
+		FILE="${WORKSPACE}"/MunitReports/MunitReport-$BUILD_ID.html
+		if [ -f "$FILE" ]; then
+		<h4> Please find the MUnit&Integration test Results from Below link</h4> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3>",
+		else
+			echo "munit build fail"
+		fi
+		compressLog: true, replyTo: 'satheesh.chitti@capgemini.com',
        subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", to: 'sandhya.a.n@capgemini.com,sreedhar.butta@capgemini.com' 
 	
 			
