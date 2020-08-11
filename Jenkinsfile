@@ -31,11 +31,11 @@ pipeline {
 post {
 	always {
             script {
-		    if (FileExists("${FILE}")); then
+		    if (FileExists($FILE))
         		echo "file exists"
 		    else
                         echo "file does not exists"
-		  fi
+		  
 }
 }
 }
