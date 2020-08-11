@@ -40,6 +40,7 @@ post {
                                 attachLog: true
                             )
                         }
+	    }
 			
 	 publishHTML  target: [
             allowMissing: false,
@@ -49,7 +50,7 @@ post {
             reportFiles: 'MunitReport-${BUILD_ID}.html',
             reportName: 'Munit Report'
           ]		
-}		
+		
 }
 }
 }
