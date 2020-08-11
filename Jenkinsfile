@@ -31,7 +31,7 @@ pipeline {
 post {
 	always {
             script {
-                        if ( -f "$FILE") 
+		    if (file_exists("${FILE}")) 
 		    	 {
                             emailext (
                                 to: '${DEFAULT_RECIPIENTS}',
