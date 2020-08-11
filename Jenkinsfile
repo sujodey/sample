@@ -30,7 +30,6 @@ pipeline {
 	
 post {
 	always {
-            script {
 		    if (FILE.exists())
         		echo "file exists"
 		    else
