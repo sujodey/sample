@@ -5,18 +5,18 @@ pipeline {
 	
 	   stage('Compile'){
             steps{
-                bat script: 'mvn clean install package'
+                sh script: 'mvn clean install package'
             }
 		}	
         // Munit testing
         stage('MUnit Testing') {
             steps {
-               bat 'mvn test-compile test package'
+               sh 'mvn test-compile test package'
 			}
 		}
 		stage(' publishing Munit Reports'){
 			steps{
-			bat '''
+			sh '''
 			echo " ${WORKSPACE} "
 			cd ${WORKSPACE}
 			mkdir -p  MunitReports
