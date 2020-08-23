@@ -2,11 +2,12 @@ pipeline {
 	agent any
 	
 	stages {
+	
 	   stage('Compile'){
             steps{
                 sh script: 'mvn clean compile'
             }
-			
+		}	
         // Munit testing
         stage('MUnit Testing') {
             steps {
@@ -46,8 +47,8 @@ pipeline {
 	    }
 	}
 	
-post {
-	always {
+	post {
+	  always {
 		archiveArtifacts allowEmptyArchive: true, artifacts: 'MunitReports/MunitReport-${BUILD_NUMBER}.html', onlyIfSuccessful: true
 		archiveArtifacts allowEmptyArchive: true, artifacts: 'report/${BUILD_NUMBER}/htmlreport.html', onlyIfSuccessful: true
 		emailext attachLog: true, attachmentsPattern: 'MunitReports/MunitReport-${BUILD_NUMBER}.html,report/${BUILD_NUMBER}/htmlreport.html', 		
