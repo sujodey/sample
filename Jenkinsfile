@@ -5,18 +5,18 @@ pipeline {
 	
 	   stage('Compile'){
             steps{
-                sh script: 'mvn clean install package'
+                bat script: 'mvn clean install package'
             }
 		}	
         // Munit testing
         stage('MUnit Testing') {
             steps {
-               sh 'mvn test-compile test package'
+               bat 'mvn test-compile test package'
 			}
 		}
 		stage(' publishing Munit Reports'){
 			steps{
-			sh '''
+			bat '''
 			echo " ${WORKSPACE} "
 			cd ${WORKSPACE}
 			mkdir -p  MunitReports
@@ -34,7 +34,7 @@ pipeline {
 					buildInfo.env.capture = true
 					def rtMaven = Artifactory.newMavenBuild()
 					rtMaven.tool = Maven3 // Tool name from Jenkins configuration
-				    rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
+				    	rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
 					rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
 
 					rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
