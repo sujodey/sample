@@ -51,9 +51,6 @@ pipeline {
 	
 post {
 	  always {
-		script {
-			if ((-f "$FILE")) then
-                       {
 		emailext attachLog: true, body: '<h4>Build Result</h4> <h3> ${currentBuild.result}:</h3>  <h4> Please find the MUnit&Integration test Results from Below link</h4> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3> <h3>${DEMO}/${BUILD_NUMBER}/Integration_20Test_20Report</h3>', compressLog: true, replyTo: 'sandhya.a.n@capgemini.com', subject: 'Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}', to: 'sandhya.a.n@capgemini.com'
 			
 	    	publishHTML target: [
@@ -64,13 +61,6 @@ post {
 			reportFiles: 'MunitReport-${BUILD_ID}.html',
             	reportName: 'Munit Report'
             	]
-		       }
-		else 
-				{
-					echo "muletime error"
-				}
-			fi	
-		}
 	  }
 }
 }
