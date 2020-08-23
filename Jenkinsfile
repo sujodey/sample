@@ -1,20 +1,18 @@
 pipeline {
 	agent any
 	
-	
-	 environment {
-		 DEMO = 'http://3.250.224.60:8080/job/Munittest-sampleproject'
-		 FILE= '${DEMO}/${BUILD_NUMBER}/Munit_20Report'
-		 
-    }
 	stages {
-	   
+	   stage('Compile'){
+            steps{
+                sh script: 'mvn clean compile'
+            }
+			
         // Munit testing
         stage('MUnit Testing') {
             steps {
-               sh 'mvn clean test'
-	    }
-	  }
+               sh 'mvn test-compile test package'
+			}
+		}
 		stage(' publishing Munit Reports'){
 			steps{
 			sh '''
@@ -23,7 +21,6 @@ pipeline {
 			mkdir -p  MunitReports
 			echo " ${WORKSPACE} "
 			mv "${WORKSPACE}"/target/site/munit/coverage/summary.html "${WORKSPACE}"/MunitReports/MunitReport-$BUILD_ID.html
-                    
                            '''				
 			}
 		}
@@ -50,20 +47,21 @@ pipeline {
 	}
 	
 post {
-	  always {
-		emailext attachLog: true, body: '<h4>Build Result</h4> <h3> ${currentBuild.result}:</h3>  <h4> Please find the MUnit&Integration test Results from Below link</h4> <h3>${DEMO}/${BUILD_NUMBER}/Munit_20Report</h3> <h3>${DEMO}/${BUILD_NUMBER}/Integration_20Test_20Report</h3>', compressLog: true, replyTo: 'sandhya.a.n@capgemini.com', subject: 'Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}', to: 'sandhya.a.n@capgemini.com'
+	always {
+		archiveArtifacts allowEmptyArchive: true, artifacts: 'MunitReports/MunitReport-${BUILD_NUMBER}.html', onlyIfSuccessful: true
+		archiveArtifacts allowEmptyArchive: true, artifacts: 'report/${BUILD_NUMBER}/htmlreport.html', onlyIfSuccessful: true
+		emailext attachLog: true, attachmentsPattern: 'MunitReports/MunitReport-${BUILD_NUMBER}.html,report/${BUILD_NUMBER}/htmlreport.html', 		
+		body: "<h4> ${currentBuild.currentResult}: </h4> Job: <h4> ${env.JOB_NAME}</h4> build: <h4>${env.BUILD_NUMBER}</h4>", compressLog: true, subject: "Jenkins Build ${currentBuild.currentResult}", to: "sandhya.a.n@capgemini.com"
 			
-	    	publishHTML target: [
-            	allowMissing: false,
-            	alwaysLinkToLastBuild: false,
-            	keepAll: true,
-            	reportDir: 'MunitReports',
+			publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'MunitReports',
 			reportFiles: 'MunitReport-${BUILD_ID}.html',
-            	reportName: 'Munit Report'
-            	]
-	  }
-}
-}
-
-
+            reportName: 'Munit Report'
+            ]
+		}
+	}
+}	
 
