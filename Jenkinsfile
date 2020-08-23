@@ -5,7 +5,7 @@ pipeline {
 	
 	   stage('Compile'){
             steps{
-                sh script: 'mvn clean compile'
+                sh script: 'mvn clean install package'
             }
 		}	
         // Munit testing
